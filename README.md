@@ -6,7 +6,7 @@ A sample usage of the widget can be seen in this community page (please connect/
 
 [**Live App**](https://alpha.near.org/gordonjun.near/widget/bbclanChatRoom)
 
-## Setup
+## Setup & Usage
 
 - Install all the dependencies:
 
@@ -21,6 +21,7 @@ A sample usage of the widget can be seen in this community page (please connect/
     yarn start:app
     ```
     - Copy the code in ```widget/ChatV2.dev.jsx``` into [NEAR BOS Sandbox](https://near.org/sandbox) to render the output
+        - To change chat room, just edit ***room*** variable before rendering
 
 - Run viewer (not tested):
 
@@ -47,6 +48,7 @@ A sample usage of the widget can be seen in this community page (please connect/
     - After deploy, open up the hosted link to check that it is working.
     - Edit ***externalAppUrl*** variable in ```widget/ChatV2.jsx``` to the hosted link
     - Copy the code in ```widget/ChatV2.jsx``` into [NEAR BOS Sandbox](https://near.org/sandbox) to render the output
+        - To change chat room, just edit ***room*** variable before rendering
 
 ## Libraries
 
