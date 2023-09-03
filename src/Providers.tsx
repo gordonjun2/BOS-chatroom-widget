@@ -1,7 +1,6 @@
 import { lazy, Suspense } from "react";
 import { ChakraProvider } from "@chakra-ui/react";
 import { NearSocialBridgeProvider } from "near-social-bridge";
-import RoomsProvider from "./contexts/RoomsProvider";
 
 import Loading from "./components/Loading";
 import mock from "./mock";
@@ -17,11 +16,9 @@ const Providers = () => {
   return (
     <ChakraProvider>
       <NearSocialBridgeProvider fallback={<Loading />}>
-        <RoomsProvider>
-          <Suspense fallback={<Loading />}>
-            <Routes />
-          </Suspense>
-        </RoomsProvider>
+        <Suspense fallback={<Loading />}>
+          <Routes />
+        </Suspense>
       </NearSocialBridgeProvider>
     </ChakraProvider>
   );

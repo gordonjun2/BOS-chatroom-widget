@@ -24,7 +24,6 @@ import Message from "../components/Message";
 import Loading from "../components/Loading";
 import sendMessage from "../services/sendMessage";
 import getRoomData, { RoomMessage } from "../services/getRoomData";
-import useRoomsList from "../hooks/useRoomsList";
 import { useFilePicker } from "use-file-picker";
 import resizeImage from "../utils/resizeImage";
 import MessageImage from "./MessageImage";
@@ -43,7 +42,6 @@ const ChatRoom: React.FC<Props> = ({
   );
   const [pendingMessages, setPendingMessages] = useState<RoomMessage[]>([]);
   const [message, setMessage] = useState("");
-  const { ready: isRoomsReady, roomsList } = useRoomsList();
   const [ready, setReady] = useState(false);
   const messageBoxRef = useRef<any>();
   const auth = useAuth();
@@ -57,14 +55,8 @@ const ChatRoom: React.FC<Props> = ({
 
   // Check if room exists in the list, case not, set the default one
   useEffect(() => {
-    if (isRoomsReady) {
-      if (!roomsList.includes(roomId)) {
-        setCurrentRoomId("bbclan");
-        return;
-      }
-      setCurrentRoomId(roomId);
-    }
-  }, [isRoomsReady, roomsList, roomId, currentRoomId]);
+    setCurrentRoomId(roomId);
+  }, [roomId, currentRoomId]);
 
   // Auto scrolling
   const scrollMessageBoxToBottom = useCallback(() => {
@@ -221,7 +213,7 @@ const ChatRoom: React.FC<Props> = ({
           </Heading>
         </Box>
 
-        {ready && isRoomsReady ? (
+        {ready ? (
           <>
             {/* Messages */}
             <Box

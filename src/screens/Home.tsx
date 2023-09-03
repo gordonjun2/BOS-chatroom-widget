@@ -21,24 +21,20 @@ const Home: React.FC<PreHomeScreenProps> = ({ navigation }) => {
   return (
     <Container>
       <Content direction="row">
-        (
-          <>
-            {isMember ? (
-              <ChatRoom roomId={roomId} />
-            ) : (
-              <Box w="100%" display="flex">
-                <Spinner
-                  margin="auto"
-                  thickness="4px"
-                  speed="0.65s"
-                  emptyColor="gray.200"
-                  color="teal.500"
-                  size="xl"
-                />
-              </Box>
-            )}
-          </>
-        )
+        {isMember ? (
+          <ChatRoom roomId={roomId} />
+        ) : (
+          <Box w="100%" display="flex">
+            <Spinner
+              margin="auto"
+              thickness="4px"
+              speed="0.65s"
+              emptyColor="gray.200"
+              color="teal.500"
+              size="xl"
+            />
+          </Box>
+        )}
       </Content>
     </Container>
   );

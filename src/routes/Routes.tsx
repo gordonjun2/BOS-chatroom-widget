@@ -2,7 +2,7 @@ import { createStackNavigator, useAuth } from "near-social-bridge";
 import { NavigationProps } from "./NavigationProps";
 
 import Home from "../screens/Home";
-// import MobileChatRoom from "../screens/MobileChatRoom";
+import MobileChatRoom from "../screens/MobileChatRoom";
 import LoggedOut from "../screens/LoggedOut";
 
 import Loading from "../components/Loading";
@@ -21,7 +21,7 @@ const Routes: React.FC = () => {
       {auth.user ? (
         <Navigator autoHeightSync>
           <Screen name="Home" component={Home} />
-          {/* <Screen name="MobileChatRoom" component={MobileChatRoom} /> */}
+          <Screen name="MobileChatRoom" component={MobileChatRoom} />
         </Navigator>
       ) : (
         <Navigator autoHeightSync>
