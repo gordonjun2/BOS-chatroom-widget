@@ -13,25 +13,21 @@ import {
   Input,
   Icon,
   Text,
-  Button,
   Stack,
   Tooltip,
   useMediaQuery,
 } from "@chakra-ui/react";
-import { RiSendPlaneFill, RiImageAddFill, RiShareFill } from "react-icons/ri";
+import { RiSendPlaneFill, RiImageAddFill } from "react-icons/ri";
 // import { RiSendPlaneFill, RiImageAddFill } from "react-icons/ri";
 import truncate from "../utils/truncate";
 import Message from "../components/Message";
 import Loading from "../components/Loading";
 import sendMessage from "../services/sendMessage";
 import getRoomData, { RoomMessage } from "../services/getRoomData";
-import useTypedNavigation from "../hooks/useTypedNavigator";
-import useTypedInitialPayload from "../hooks/useTypedInitialPayload";
 import useRoomsList from "../hooks/useRoomsList";
 import { useFilePicker } from "use-file-picker";
 import resizeImage from "../utils/resizeImage";
 import MessageImage from "./MessageImage";
-import setClipboardText from "../services/setClipboardText";
 
 type Props = {
   roomId: string;
@@ -51,8 +47,6 @@ const ChatRoom: React.FC<Props> = ({
   const [ready, setReady] = useState(false);
   const messageBoxRef = useRef<any>();
   const auth = useAuth();
-  const { mainChatURL } = useTypedInitialPayload();
-  const navigation = useTypedNavigation();
   const [openFileSelector, { filesContent, clear }] = useFilePicker({
     accept: "image/*",
     multiple: false,
@@ -191,10 +185,6 @@ const ChatRoom: React.FC<Props> = ({
   useEffect(() => {
     setTimeout(scrollMessageBoxToBottom, 2200);
   }, [currentRoomId, scrollMessageBoxToBottom]);
-
-  const goToHome = () => {
-    navigation.push("Home");
-  };
 
   // Image upload
   useEffect(() => {
