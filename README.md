@@ -2,6 +2,8 @@
 
 This is the single chatroom version of [ChatV2 Widget App](https://github.com/wpdas/chatv2-near-widget-app). Credits to [Wenderson Pires](https://github.com/wpdas).
 
+A sample usage of the widget can be seen in this community page (please connect/subscribe to the page to view the hidden apps, including his chatroom widget ^_^): [bbclan](https://near.social/gordonjun.near/widget/bbclan.dao)
+
 [**Live App**](https://alpha.near.org/gordonjun.near/widget/bbclanChatRoom)
 
 ## Setup
