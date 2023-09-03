@@ -1,0 +1,1 @@
+# BOS-chatroom-widget
